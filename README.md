@@ -1,6 +1,6 @@
 # MEAN Task List
 
-* Simple app using the Mongodb, Express, Angular and Node.js MEAN stack.
+* Simple full-stack app that displays a list of messages ('tweets') generated on the client side and processes them using backend node.js. Future link to mongodb database to save messages.
 
 *** Note: to open web links in a new window use: _ctrl+click on link_**
 
@@ -17,41 +17,65 @@
 
 ## General info
 
-* f
+* A simplified Twitter clone.
 
 ## Screenshots
 
-![Example screenshot](./img/.png).
+![Example screenshot](./img/tweets-frontend.png).
 
 ## Technologies
 
-* [Angular v7.2.13](https://angular.io/) & [Angular CLI v7.3.8](https://cli.angular.io/).
+* [Node.js v10.15.3](https://nodejs.org/en/)
 
-* f
+* [npm javascript filter used on title and content user inputs](https://www.npmjs.com/package/bad-words)
+
+* [npm Express rate limiting](https://www.npmjs.com/package/express-rate-limit) using Node internal store (i.e.not an external database).
+
+* [npm monk toolkit for mongodb](https://nodejs.org/en/)
 
 ## Setup
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `npm run dev` for a dev server. Navigate to `http://localhost:5000/`. The app uses Nodemon and will automatically reload if you change any of the source files.
 
 ## Code Examples
 
-* f.
+* `server/index.js` - function to post tweet data from html frontend req.body parameters; filtering text then adding to tweets array.
 
-```typescript
+```javascript
 
+app.post('/tweets', (req, res, next) => {
+	if(isValidTweet(req.body)) {
+		const tweet = {
+			name: filter.clean(req.body.name.toString()),
+			content: filter.clean(req.body.content.toString()),
+			created: new Date()
+		};
 
+		tweets
+			.prepend(tweet)
+			.then(createdTweet => {
+				res.json(createdTweet);
+			});
+
+	} else {
+		res.status(422);
+		res.json({
+			message: 'Helooo, name and message are required'
+		});
+	}
+});
 
 ```
 
 ## Features
 
-* f
+* A simple app with vanilla javascript. No js framework used.
 
 ## Status & To-Do List
 
-* Status: .
+* Status: basic working app that saves tweets locally.
 
-* To-Do: .
+* To-Do: Correct code so latest tweet listed first (`reverse()` function not working). Remove duplication of tweets. Add connection to mongodb database.
 
 ## Inspiration
 

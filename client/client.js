@@ -29,8 +29,11 @@ form.addEventListener('submit', (event) => {
 		}
 	}).then(response => response.json())
 		.then(createdTweet => {
-			console.log(createdTweet);
-			loadingElement.style.display = 'none';
+			form.reset();
+				setTimeout(() => {
+					form.style.display = '';
+				}, 30000)
+				listAllTweets();
 		});
 });
 
@@ -38,7 +41,8 @@ function listAllTweets() {
 	fetch(API_URL)
 		.then(response => response.json())
 		.then(tweets => {
-			console.log(tweets);
+			tweets.reverse();
+
 			tweets.forEach(tweet => {
 				const div = document.createElement('div');
 
@@ -48,10 +52,15 @@ function listAllTweets() {
 				const contents = document.createElement('p');
 				contents.textContent = tweet.content;
 
+				const date = document.createElement('small');
+				date.textContent = new Date(tweet.created);
+
 				div.appendChild(header);
 				div.appendChild(contents);
+				div.appendChild(date);
 
 				tweetsElement.appendChild(div);
 			});
+			loadingElement.style.display = 'none';
 		});
 }
