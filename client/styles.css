@@ -1,10 +1,11 @@
 .title {
-  text-align: center;
+	text-align: center;
 }
 
-.clone-form, .loading {
-  width: 50%;
-  margin: 0 auto;
+.clone-form,
+.loading {
+	width: 50%;
+	margin: 0 auto;
 }
 
 .loading {

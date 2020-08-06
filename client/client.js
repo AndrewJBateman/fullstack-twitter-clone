@@ -15,7 +15,7 @@ form.addEventListener('submit', (event) => {
 
 	const tweet = {
 		name,
-		content
+		content,
 	};
 
 	form.style.display = 'none';
@@ -25,25 +25,26 @@ form.addEventListener('submit', (event) => {
 		method: 'POST',
 		body: JSON.stringify(tweet),
 		headers: {
-			'content-type': 'application/json'
-		}
-	}).then(response => response.json())
-		.then(createdTweet => {
+			'content-type': 'application/json',
+		},
+	})
+		.then((response) => response.json())
+		.then((createdTweet) => {
 			form.reset();
-				setTimeout(() => {
-					form.style.display = '';
-				}, 30000)
-				listAllTweets();
+			setTimeout(() => {
+				form.style.display = '';
+			}, 30000);
+			listAllTweets();
 		});
 });
 
 function listAllTweets() {
 	fetch(API_URL)
-		.then(response => response.json())
-		.then(tweets => {
+		.then((response) => response.json())
+		.then((tweets) => {
 			tweets.reverse();
 
-			tweets.forEach(tweet => {
+			tweets.forEach((tweet) => {
 				const div = document.createElement('div');
 
 				const header = document.createElement('h3');
