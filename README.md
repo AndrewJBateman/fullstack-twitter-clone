@@ -1,8 +1,12 @@
 # :zap: Twitter Clone
 
 * Simple full-stack app that displays a list of messages ('tweets') generated on the client side and processes them using backend node.js. Future link to mongodb database to save messages.
+* **Note:** to open web links in a new window use: _ctrl+click on link_
 
-*** Note: to open web links in a new window use: _ctrl+click on link_**
+![GitHub repo size](https://img.shields.io/github/repo-size/AndrewJBateman/fullstack-twitter-clone?style=plastic)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/AndrewJBateman/fullstack-twitter-clone?style=plastic)
+![GitHub Repo stars](https://img.shields.io/github/stars/AndrewJBateman/fullstack-twitter-clone?style=plastic)
+![GitHub last commit](https://img.shields.io/github/last-commit/AndrewJBateman/fullstack-twitter-clone?style=plastic)
 
 ## :page_facing_up: Table of contents
 
@@ -81,6 +85,10 @@ app.post('/tweets', (req, res, next) => {
 
 * [Tutorial: The Coding Train: Build a Full Stack Twitter Clone with Coding Garden](https://www.youtube.com/watch?v=JnEH9tYLxLk)
 
+## :file_folder: License
+
+* This project is licensed under the terms of the MIT license.
+
 ## :envelope: Contact
 
-* Repo created by [ABateman](https://www.andrewbateman.org) - you are welcome to [send me a message](https://andrewbateman.org/contact)
+* Repo created by [ABateman](https://github.com/AndrewJBateman), email: gomezbateman@yahoo.com
